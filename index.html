@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Question</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #4caf50; /* Green background */
+            font-family: Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            color: white; /* Text color for contrast */
+        }
+        .header_text {
+            margin: 10px 0;
+        }
+        .gif_container img {
+            width: 300px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        #yesButton {
+            background-color: #76ff03; /* Light green for Yes */
+            color: black;
+        }
+        #noButton {
+            background-color: #ff3d00; /* Red for No */
+            color: white;
+        }
+        #noButton:hover {
+            background-color: #c62828; /* Darker red on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1 class="header_text">Do you wanna go out with me?</h1>
+            <h1 class="header_text">Are you free tomorrow?</h1>
+        </div>
+        <div class="gif_container">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute animated illustration">
+        </div>
+        <div class="buttons">
+            <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
+            <button class="btn" id="noButton" onmouseover="moveButton()">No</button>
+        </div>
+    </div>
+    <script>
+        function nextPage() {
+            window.location.href = "yes.html"; // Redirects to the yes page
+        }
+
+        function moveButton() {
+            const noButton = document.getElementById('noButton');
+            const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+            noButton.style.position = 'absolute';
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
